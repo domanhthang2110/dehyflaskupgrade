@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PBP",
+    "RRR"
+  ],
+  "key": {
+    "P": {
+      "item": "dehydration:purified_water_bucket"
+    },
+    "B": {
+      "item": "travelersbackpack:blank_upgrade"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "dehyflaskupgrade:drinking_upgrade"
+  }
+}

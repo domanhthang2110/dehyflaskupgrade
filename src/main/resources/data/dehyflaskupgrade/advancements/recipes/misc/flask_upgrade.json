@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blank_upgrade": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["travelersbackpack:blank_upgrade"]
+          }
+        ]
+      }
+    },
+    "has_flask": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["dehydration:leather_flask"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["has_blank_upgrade", "has_flask"]
+  ],
+  "rewards": {
+    "recipes": ["dehyflaskupgrade:flask_upgrade"]
+  }
+}

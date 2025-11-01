@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blank_upgrade": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "travelersbackpack:blank_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "has_purified_water_bucket": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dehydration:purified_water_bucket"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "dehyflaskupgrade:drinking_upgrade"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blank_upgrade",
+      "has_purified_water_bucket",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dehyflaskupgrade:drinking_upgrade"
+    ]
+  }
+}

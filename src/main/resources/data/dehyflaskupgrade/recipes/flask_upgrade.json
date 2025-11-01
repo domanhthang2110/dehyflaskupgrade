@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FBF"
+  ],
+  "key": {
+    "F": {
+      "item": "dehydration:leather_flask"
+    },
+    "B": {
+      "item": "travelersbackpack:blank_upgrade"
+    }
+  },
+  "result": {
+    "item": "dehyflaskupgrade:flask_upgrade"
+  }
+}
