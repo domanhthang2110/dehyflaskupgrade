@@ -3,6 +3,7 @@ package com.yukami.dehyflaskupgrade.config;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
+import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 
 /**
  * Flask Upgrade Configuration using Cloth Config
@@ -13,35 +14,23 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config(name = "dehyflaskupgrade")
 public class FlaskConfig implements ConfigData {
     
-    @ConfigEntry.Category("flask_economy")
+    @ConfigEntry.Category("flask_upgrade")
     @ConfigEntry.Gui.Tooltip(count = 3)
+    @Comment("Whether flask filling cost scales with the flask's fill level")
     public boolean fillPerLevel = true;
     
-    @ConfigEntry.Category("flask_economy") 
-    @ConfigEntry.BoundedDiscrete(min = 100, max = 81000)
-    @ConfigEntry.Gui.Tooltip(count = 5)
+    @ConfigEntry.Category("flask_upgrade") 
+    @ConfigEntry.Gui.Tooltip(count = 4)
+    @Comment("Base fluid amount consumed per flask level in fluid units (27000 = 1 bottle, 81000 = 1 bucket)")
     public long fillAmount = 27000;
     
     @ConfigEntry.Category("auto_drink")
-    @ConfigEntry.BoundedDiscrete(min = 5, max = 200)
-    @ConfigEntry.Gui.Tooltip(count = 3)
-    public int drinkingUpgradeTickRate = 60;
-    
-    @ConfigEntry.Gui.Tooltip(count = 3)
-    public int drinkingUpgradeRetryDelay = 20;
-    
-    /**
-     * Calculate the actual fluid cost for filling a flask
-     * @param flaskFillLevel The fill level the flask will have when full
-     * @return The fluid cost in units
-     */
-    public long calculateFluidCost(int flaskFillLevel) {
-        if (fillPerLevel) {
-            return fillAmount * flaskFillLevel;
-        } else {
-            return fillAmount;
-        }
-    }
+    @Comment("How often the Drinking Upgrade checks if player needs hydration (in ticks)")
+    public int drinkingUpgradeTickRate = 100;
+
+    @ConfigEntry.Category("auto_drink")
+    @Comment("Delay between drinking attempts when still thirsty (in ticks)")
+    public int drinkingUpgradeRetryDelay = 60;
     
     /**
      * Calculate the fluid cost for topping up a partially filled flask
@@ -55,17 +44,6 @@ public class FlaskConfig implements ConfigData {
             return fillAmount * missingLevels;
         } else {
             return fillAmount;
-        }
-    }
-    
-    /**
-     * Get a human-readable description of the current config
-     */
-    public String getConfigDescription() {
-        if (fillPerLevel) {
-            return "Per-level cost: " + fillAmount + " fluid per fill level";
-        } else {
-            return "Flat cost: " + fillAmount + " fluid per flask";
         }
     }
 }

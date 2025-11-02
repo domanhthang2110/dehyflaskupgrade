@@ -12,10 +12,14 @@
 		"sources": "https://github.com/domanhthang2110/dehyflaskupgrade"
 	},
 	"license": "MIT",
+	"icon": "assets/dehyflaskupgrade/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			"com.yukami.dehyflaskupgrade.DehyFlaskUpgrade"
+		],
+		"modmenu": [
+			"com.yukami.dehyflaskupgrade.ModMenuIntegration"
 		]
 	},
 	"mixins": [
@@ -28,5 +32,14 @@
 		"fabric-api": "*",
 		"dehydration": "*",
 		"travelersbackpack": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.github": "https://github.com/domanhthang2110/dehyflaskupgrade",
+				"modmenu.issues": "https://github.com/domanhthang2110/dehyflaskupgrade/issues"
+			},
+			"update_checker": true
+		}
 	}
 }

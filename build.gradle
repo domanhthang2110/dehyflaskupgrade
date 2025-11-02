@@ -7,8 +7,11 @@ version = project.mod_version
 group = project.maven_group
 
 base {
-	archivesName = project.archives_base_name
+	archivesName = "${project.archives_base_name}-${project.mod_loader}"
 }
+
+// Custom version format to include Minecraft version
+version = "${project.mod_version}+${project.minecraft_version}"
 
 repositories {
 	// Add repositories to retrieve artifacts from in here.
@@ -63,6 +66,8 @@ dependencies {
 	modImplementation "maven.modrinth:qWDh3G0p:${project.dehydration_version}"
 	modImplementation "maven.modrinth:rlloIFEV:${project.travelersbackpack_version}"
 	modRuntimeOnly "maven.modrinth:jei:15.20.0.116"
+	modImplementation "maven.modrinth:modmenu:7.2.2"
+
 
 	//Required for Traveler's Backpack
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
